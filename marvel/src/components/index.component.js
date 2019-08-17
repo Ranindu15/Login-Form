@@ -4,7 +4,7 @@
     render(){
       return(
         <div className="container">
-          <h1> Welcome to Thor's Place </h1>
+          <h1> Welcome index component </h1>
         </div>
       );
     }
