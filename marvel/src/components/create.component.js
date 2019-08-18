@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import axios from 'axios';
 
 export default class Create extends Component{
 
@@ -9,7 +10,7 @@ export default class Create extends Component{
     this.onChangeHeroPower = this.onChangeHeroPower.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    this.state ={
+    this.state = {
       Hero_Name: '',
       Hero_Planet:'',
       Hero_Power:''
@@ -30,15 +31,25 @@ export default class Create extends Component{
         Hero_Power : e.target.value
       })
     }
-    onSubmit(e){
+    onSubmit(e) {
       e.preventDefault();
-      console.log(`The values are ${this.state.Hero_Name}, ${this.state.Hero_Planet}, ${this.state.Hero_Power}`)
+      const obj = {
+        Hero_Name: this.state.Hero_Name,
+        Hero_Planet: this.state.Hero_Planet,
+        Hero_Power: this.state.Hero_Power
+      };
+      axios.post('http://localhost:4000/business/add', obj).then(res => console.log(res.data));
+
       this.setState({
-        Hero_Name:'',
-        Hero_Planet:'',
-        Hero_Power:''
-      })
+        Hero_Name: '',
+        Hero_Planet: '',
+        Hero_Power: ''
+      });
+
     }
+
+
+
 
 
 
@@ -67,7 +78,7 @@ export default class Create extends Component{
           </div>
 
           <div className="form-group">
-            <label> Add Heroz Power </label>
+            <label>Add Hero'z Power </label>
             <input type="text" className="form-control"
                 value={this.state.Hero_Power}
                 onChange={this.onChangeHeroPower}
@@ -83,4 +94,3 @@ export default class Create extends Component{
     );
   }
 }
-
