@@ -67,7 +67,7 @@ export default class Create extends Component{
           </div>
 
           <div className="form-group">
-            <label>Add Hero'z Power </label>
+            <label> Add Heroz Power </label>
             <input type="text" className="form-control"
                 value={this.state.Hero_Power}
                 onChange={this.onChangeHeroPower}
