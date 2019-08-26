@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import Navigation from './components/navigation';
-
-
+import 'react-bootstrap';
 class App extends Component{
    render(){
      return(
@@ -10,6 +9,5 @@ class App extends Component{
      );
    }
 }
-
 
 export default App;
